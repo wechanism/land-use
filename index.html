@@ -110,12 +110,6 @@
 
     var nav = new mapboxgl.NavigationControl();
     map.addControl(nav, 'top-left');
-    /*
-    function onClick(event) {
-        console.log('Mouse Clicked')
-        console.log(event.point);
-    }
-    map.on('click', onClick);*/ 
 
     map.on('mousemove', function(event) {
       //console.log(event);
@@ -125,25 +119,16 @@
         });
         map.getCanvas().style.cursor = features.length ? 'pointer' : '';
       }  
-      /*if (features.length) {
-        map.getCanvas().style.cursor = 'pointer';
-      } else {
-        map.getCanvas().style.cursor = '';
-      }*/
       
     });
 
     map.on('click', function(event) {
-        //console.log('Mouse Clicked')
-        //console.log(event.point);
 
         var geometry = event.point;
         var parameters = {
             layers: ['lots']
         }
         var features = map.queryRenderedFeatures(geometry, parameters);
-        //console.log(features);
-        //console.log(features.length + 'features');
         var lot = features[0];
         console.log(lot);
 
